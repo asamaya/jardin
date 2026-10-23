@@ -1,0 +1,34 @@
+/*Este archivo es para inluir todos los estilos del proyecto el jardín */
+body{
+	background-image: url('../img/fondos/fondo01.jpg');
+	color: #333399;
+}
+
+
+/* color del link sin visitar */
+a:link {
+	color: #990033;
+}
+
+/* color del link ya visitados*/
+a:visited {
+	color: #006633;
+}
+
+/* color del link mientras esta encima del link */
+a:hover {
+	color: #FF6600;
+}
+
+/* color del link al momento que el usuario preciona click */
+a:active {
+	color: hotpink;
+} 
+
+img{
+	border-radius: 10px;
+}
+
+video{
+	border-radius: 30px;
+}

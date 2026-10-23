@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del Bloque Head -->
+{% include 'm01_sitio/zhead.html' %}
+<!-- Inicio del Bloque Head -->
+
+<!-- Inicio del Body -->
+
+<body onload="startTime()">
+
+  <!--- Inicio del Bloque Menú -->
+  {% include 'm01_sitio/zmenu_n1.html' %}
+  <!--- Fin del Bloque Menú -->
+
+
+  <!--Inicio del Container Principal / Bloque proceso -->
+  <div class="container text-center">
+    <br />
+    <h1>Formulario # 1</h1>
+    <form action="PROGRAMA.PY/PROGRAMA.PHP" method="POST/GET">
+      <label for="txt_nombre1"><b>Usuario:</b> &nbsp; &nbsp;</label>
+      <input type="text" id="txt_nombre1" name="txt_nombre1" width="50" placeholder="Escriba su nombre" autofocus
+        required />
+      <br />
+      ina 3 de 11 - domingo, 18 de octubre de 2026 - 7:59 p. m.
+      yecto Jardín ( p05_formulario.html ) – Sergio Capacho
+      <br />
+
+      <label for="txt_clave1"><b>Clave:</b> &nbsp; &nbsp;</label>
+      <input type="password" id="txt_clave1" name="txt_clave1" width="50" placeholder="Escriba su Clave" autofocus
+        required />
+      <br /> <br />
+
+      <label for="txt_fecha1"><b>Fecha Nacimiento:</b> &nbsp; &nbsp;</label>
+      <input type="date" id="txt_fecha1" name="txt_fecha1" placeholder="Escriba la fecha de Naciemiento" required />
+      <br /> <br />
+
+      <label for="txt_hora1"><b>Hora Nacimiento:</b> &nbsp; &nbsp;</label>
+      <input type="time" id="txt_hora1" name="txt_hora1" placeholder="Escriba la hora de Nacimiento" required />
+      <br /> <br />
+
+      <label for="txt_edad1"><b>Edad:</b> &nbsp; &nbsp;</label>
+      <input type="number" id="txt_edad1" name="txt_edad1" min="12" max="70" step="2" size="3"
+        placeholder="Escriba la edad" required />
+      <br />
+      <br />
+
+
+
+      <label for="txt_pais1"><b>País:</b> &nbsp; &nbsp; </label>
+      <select id="txt_pais1" name="txt_pais1" required>
+        <option value="" disabled selected>Seleccione un país...</option>
+        <option value="1">Colombia</option>
+        <option value="2">Ecuador</option>
+        <option value="3">Argentina</option>
+        <option value="4">Estados Unidos</option>
+        <option value="5">Brasil</option>
+        <option value="6">Uruguay</option>
+        <option value="7">Paraguay</option>
+        <option value="8">Bolivia</option>
+      </select>
+      <br />
+      <b>Nota: </b>El valor de value se guarda en la variable name="txt_pais1"
+      <br /> <br />
+
+      <label><b>¿Cuáles deporte práctica?:</b> &nbsp; &nbsp; </label>
+      <input type="checkbox" name="deporte1" value="1"> Voleibol &nbsp; &nbsp;
+      <input type="checkbox" name="deporte1" value="2"> Futbol &nbsp; &nbsp;
+      <input type="checkbox" name="deporte1" value="3"> Beisbol &nbsp; &nbsp;
+      <input type="checkbox" name="deporte1" value="4"> Natación &nbsp; &nbsp;
+      <input type="checkbox" name="deporte1" value="5"> Tiro con arco &nbsp; &nbsp;
+      <br />
+      <b>Nota:</b>Todos comparten el atributo name="deporte1" para que el servidor reciba todas <br />
+      las opciones seleccionadas bajo un mismo nombre; es decir, <i>name="deporte1[]" o name="deporte1") </i>
+      <br />
+
+      <br />
+
+      <label for="txt_comentarios1"><b>Comentarios:</b> </label> <br />
+      <textarea name="txt_comentarios1" id="txt_comentarios1" rows="5" cols="50" maxlength="10"
+        placeholder="Escribe aquí tú comentario..." required></textarea>
+      <br />
+      <b>Nota: </b>El atributo maxlength="10" sirve para limitar el número máximo de caracteres
+      que el usuario puede escribir en ese cuadro de texto.
+      <br /> <br />
+
+      <input type="submit" value="Enviar">
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <input type="reset" value="Limpiar">
+    </form>
+    <hr />
+
+
+    <center>
+      <h1>Tabla</h1>
+      <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+          <th>Id</th>
+          <th>Nombre</th>
+          <th>Empresa</th>
+        </tr>
+
+
+
+        <tr>
+          <th>1</th>
+          <td>Natasha Romanof</td>
+          <td>S.H.I.E.L.D </td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Clark Kent</td>
+          <td>Diario el planeta</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>Maria Gil</td>
+          <td>S.H.I.E.L.D</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td> Sharon Carter <br /> <b>Agente 13</b> </td>
+          <td>S.H.I.E.L.D</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td> Capitan América </td>
+          <td>Avenger</td>
+        </tr>
+      </table>
+
+    </center>
+
+    <br />
+    <hr />
+    <br />
+
+
+    <center>
+      <form action="PROGRAMA.PY/PROGRAMA.PHP" method="POST/GET">
+        <table border="1" cellpadding="10" cellspacing="0">
+          <tr>
+            <th colspan="3">
+              <h1>Tabla & Formulario 2</h1>
+            </th>
+          </tr>
+
+
+          <tr>
+            <th>1</th>
+            <td width="200">Usuario: </td>
+            <td width="500">
+              <input type="text" id="txt_nombre2" name="txt_nombre2" width="50" placeholder="Escriba su nombre"
+                autofocus required />
+            </td>
+          </tr>
+
+
+
+          <tr>
+            <th>2</th>
+            <td>Clave: </td>
+            <td>
+              <input type="password" id="txt_clave2" name="txt_clave2" width="50" placeholder="Escriba su clave"
+                autofocus required />
+            </td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td>Fecha Nacimiento:: </td>
+            <td>
+              <input type="date" id="txt_fecha2" name="txt_fecha2" placeholder="Escriba la fecha de Nacimiento"
+                required />
+            </td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td>Hora de Nacimiento: </td>
+            <td>
+              <input type="time" id="txt_hora2" name="txt_hora2" placeholder="Escriba la hora de Nacimiento" required />
+            </td>
+          </tr>
+          ina 9 de 11 - domingo, 18 de octubre de 2026 - 7:59 p. m.
+          yecto Jardín ( p05_formulario.html ) – Sergio Capacho
+
+          <tr>
+            <th>5</th>
+            <td>Edad: </td>
+            <td>
+              <input type="number" id="txt_edad2" name="txt_edad2" min="12" max="70" step="2" size="3"
+                placeholder="Escriba la edad" required />
+            </td>
+          </tr>
+
+          <tr>
+            <th>6</th>
+            <td>País: </td>
+            <td>
+              <select id="txt_pais2" name="txt_pais2" required>
+                <option value="" disabled selected>Seleccione un país...</option>
+                <option value="1">Colombia</option>
+                <option value="2">Ecuador</option>
+                <option value="3">Argentina</option>
+                <option value="4">Estados Unidos</option>
+                <option value="5">Brasil</option>
+                <option value="6">Uruguay</option>
+              </select>
+            </td>
+          </tr>
+
+          <tr>
+            <th>7</th>
+            <td>¿Cuáles deporte práctica?: </td>
+            <td>
+              <input type="checkbox" name="deporte" value="1"> Voleibol &nbsp; &nbsp;
+              <input type="checkbox" name="deporte" value="2"> Futbol &nbsp; &nbsp;
+              <input type="checkbox" name="deporte" value="3"> Beisbol &nbsp; &nbsp;
+            </td>
+          </tr>
+          <tr>
+            <th>8</th>
+            <td>Comentarios: </td>
+            <td>
+              <textarea name="txt_comentarios2" id="txt_comentarios2" rows="5" cols="50" maxlength="10"
+                placeholder="Escribe aquí tú comentario..." required></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" align="center">
+              <input type="submit" value="Enviar">
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <input type="reset" value="Limpiar">
+          </tr>
+        </table>
+      </form>
+
+    </center>
+  </div>
+  <!--Fin del Container Principal / Bloque proceso -->
+  <BR />
+
+  <!--Inicio del Bloque Pie de página -->
+  {% include 'm01_sitio/zpie.html' %}
+  <!--Fin del Bloque Pie de Página -->
+</body>
+<!-- Fin del Body -->
+
+</html>

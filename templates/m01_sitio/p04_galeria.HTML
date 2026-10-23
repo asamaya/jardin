@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!-- Inicio del Bloque Head -->
+  {% include 'm01_sitio/zhead.html' %}
+  <!-- Inicio del Bloque Head -->
+  <!-- Inicio del Body -->
+  <body onload="startTime()">
+    <!--- Inicio del Bloque Menú -->
+    {% include 'm01_sitio/zmenu_n1.html' %}
+    <!--- Inicio del Bloque Menú -->
+    <!-- Inicio del Container Principal -->
+    <div class="container text-center">
+      <BR/>
+      <BR/>
+      <b>
+        <em>
+          <font color="#FFFFFF" SIZE="8">
+            <marquee behavior="alternate" bgcolor="#008000">
+              <B>
+                &#161; Un pequeño paseo por nuestro trabajo!
+              </B>
+            </marquee>
+          </font>
+        </em>
+      </b>
+      <!-- Inicio Fila # 1 / Jardines -->
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin01.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 01"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin02.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 02"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin03.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 03"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin04.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 04"/>
+        </div>
+      </div>
+      <!-- Fin Fila # 1 -->
+      <!-- Inicio Fila # 2 / Jardines -->
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin05.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 05"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin06.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 06"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin07.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 07"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin08.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 08"/>
+        </div>
+      </div>
+      <!--Fin Fila # 2 -->
+      <!-- Inicio Fila # 3 / Jardines -->
+      <div class="row">
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin13.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 13"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin14.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 14"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin15.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 15"/>
+        </div>
+        <div class="col-md-3 text-center">
+          <img src="../static/img/jardines/jardin16.jpg"
+            class="rounded" width="80%" height="80%" alt="Jardin 16"/>
+        </div>
+      </div>
+      <!-- Fin Fila # 3 -->
+      <hr/>
+      <!-- Inicio Fila # 4 / Videos -->
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/clase01.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/clase02.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/clase03.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+      </div>
+      <!-- Fin Fila # 4 -->
+      <!-- Inicio Fila # 5 / Videos -->
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <iframe width="300" height="250" src="https://www.youtube.com/embed/brgrdz1-
+            FQE?si=ZwvTlbBEJc6e95mo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+            encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+            class="redondeo">
+          </iframe>
+        </div>
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/Star_Wars_Capela_01.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+        <div class="col-md-4 text-center">
+          <iframe width="300" height="250"
+            src="https://www.youtube.com/embed/JTtwO5dagyM?si=tHLAwLbQyX2dAKj2" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict176 origin-when-cross-origin" allowfullscreen class="redondeo">
+          </iframe>
+        </div>
+      </div>
+      <!-- Fin Fila # 5 -->
+      <!-- Inicio Fila # 6 / Videos -->
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/thalia01.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/jlo01.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+        <div class="col-md-4 text-center">
+          <video src={{ url_for("static", filename="videos/Shakira01.mp4") }}
+            class="redondeo" width="300" height="250" controls/>
+        </div>
+      </div>
+      <!-- Fin Fila # 6 -->
+    </div>
+    <!--Fin del Container Principal -->
+    <BR/>
+    <!--Inicio del Bloque Pie de página -->
+    {% include 'm01_sitio/zpie.html' %}
+    <!--Fin del Bloque Pie de Página -->
+  </body>
+  <!-- Fin del Body -->
+</html>

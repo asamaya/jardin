@@ -1,0 +1,63 @@
+<!-- Programa: paso02_login.html -->
+<!-- Objetivo: Paso #2/3 para validar el usuario e ingresar al Sistema -->
+<!-- Autor: Sergio Capacho / Miércoles 21/Octubre/2026 07:46 Pm -->
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del Bloque Head (Cabecera - Metadata ) -->
+{% include 'm01_sitio/zhead.html' %}
+<!-- Fin del Bloque Head (Cabecera - Metadata ) -->
+
+<!-- Inicio del Body -->
+
+<body onload="startTime()">
+
+    <!--- Inicio del Bloque Menú Nivel #1 (Login) -->
+    {% include 'm02_login/paso01_02_zmenu_n1.html' %}
+    <!--- Fin del Bloque Menú Nivel #1 (Login) -->
+
+    <!--- Fin del Bloque Menú Nivel #2 (Login) -->
+    {% include 'm02_login/paso01_02_zmenu_n2.html' %}
+    <!--- Fin del Bloque Menú Nivel #2 (Login) -->
+
+
+    <!--Inicio del Bloque Centro / Container Principal -->
+    <div class="container text-center">
+        <br />
+        <br />
+        <div class="p-5 bg-light">
+            <h1 class="display-3">
+                {% if session["xnivel"] == 0 %}
+                Apreciad@
+                <b> {{ session["xnombre_usuario"] }}
+                    <br />
+                    UD está suspendido....
+                </b>
+                {%else%}
+                <b> {{ session["xnombre_usuario"] }} ...</b> Bienvenid@
+                <br />
+                al Módulo Administrativo....
+                {%endif%}
+            </h1>
+
+
+
+            <hr class="my-3" />
+            <p class="text-center">
+                <a class="btn btn-danger btn-lg" href="/login/admin" role="button">
+                    Click para Empresar
+                </a>
+            </p>
+        </div>
+    </div>
+    <!--Fin del Bloque Centro / Cuerpo Container Principal -->
+
+    <BR />
+    <!--Inicio del Bloque Pie de página -->
+    {% include 'm01_sitio/zpie.html' %}
+    <!--Fin del Bloque Pie de Página -->
+    <br />
+
+</body>
+<!-- Fin del Body -->
+
+</html>

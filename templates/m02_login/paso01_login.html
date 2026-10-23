@@ -1,0 +1,93 @@
+<!-- Programa: paso01_login.html -->
+<!-- Objetivo: Paso #1/3 para validar el usuario e ingresar al Sistema -->
+<!-- Autor: Sergio Capacho / Miércoles 21/Octubre/2026 07:46 Pm -->
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del Bloque Head (Cabecera - Metadata ) -->
+{% include 'm01_sitio/zhead.html' %}
+<!-- Fin del Bloque Head (Cabecera - Metadata ) -->
+
+<!-- Inicio del Body -->
+
+<body onload="startTime()">
+    <!--- Inicio del Bloque Menú Nivel #1 (Login) -->
+    {% include 'm02_login/paso01_02_login_zmenu_n1.html' %}
+    <!--- Fin del Bloque Menú Nivel #1 (Login) -->
+
+    <!--- Inicio del Bloque Menú Nivel #2 (Login) -->
+    {% include 'm02_login/paso01_02_login_zmenu_n2.html' %}
+    <!--- Fin del Bloque Menú Nivel #2 (Login) -->
+
+    <!--Inicio del Bloque Centro / Container Principal -->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4"> </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header text-center"> Inicio de Sesión </div>
+                    <div class="card-footer text-center">
+                        <div class="alert alert-danger" role="alert">
+                            <strong> {{ ymensaje }} </strong>
+                        </div>
+                    </div>
+                 
+
+                    <div class="card-body">
+                        <!-- Inicio del Formulario para leer Correo & Clave -->
+                        <form action="/login/entrar" method="POST">
+
+
+                            <div class="mb-3">
+                                <label for="txt_email" class="form-label"> Usuario: </label>
+                                <input type="email" id="txt_email" name="txt_email" class="form-control"
+                                    placeholder="Escriba su email" required />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="txt_clave" class="form-label">Clave:</label>
+                                <input type="password" id="txt_clave" name="txt_clave" class="form-control"
+                                    placeholder="Escriba la Clave" required />
+                            </div>
+
+                          
+
+
+                            <div class="text-center">
+                                <button type="submit" value="Submit" class="btn btn-primary"
+                                    title="Click para ingresar al sistema">
+                                    Enviar
+                                </button>
+
+
+                                &nbsp; &nbsp; &nbsp;
+
+
+                                <a href="/login/entrar" class="btn btn-outline-info"
+                                    title="Click para limpiar los datos del formulario...">
+                                    Limpiar
+                                </a>
+                            </div>
+
+                        </form>
+                        <!-- Fin del Formulario para leer Correo & Clave -->
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-4"> </div>
+        </div>
+    </div>
+    <!--Fin del Bloque Centro / Cuerpo Container Principal -->
+    <BR />
+
+    <!--Inicio del Bloque Pie de página -->
+    {% include 'm01_sitio/zpie.html' %}
+    <!--Fin del Bloque Pie de Página -->
+
+    <br />
+
+</body>
+<!-- Fin del Body -->
+
+</html>

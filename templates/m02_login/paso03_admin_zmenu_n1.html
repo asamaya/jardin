@@ -1,0 +1,96 @@
+<!-- Programa: paso03_admin_zmenu_n1.html -->
+<!-- Objetivo: Contruir el Menú Nivel #1 del Módulo de Admnistración -->
+<!-- Autor: Sergio Capacho / Miércoles 21/Octubre/2026 07:46 Pm -->
+<!-- Inicio del Menú Nivel #1 (Módulo Administración) -->
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/login/admin">Administración</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">
+                        Archivo
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="# "> TMStatus </a>
+                        <a class="dropdown-item" href="#"> TMCargos </a>
+                        <a class="dropdown-item" href="#"> TMEmpleados </a>
+                        <a class="dropdown-item" href="#">TMaestro 3</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">TMaestro 4</a>
+                    </div>
+                </li>
+
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">
+                        Procesos
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Registar Retardo</a>
+                        <a class="dropdown-item" href="#">Proceso 2</a>
+                        <a class="dropdown-item" href="#">Proceso 3</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Proceso 4</a>
+                    </div>
+                </li>
+
+
+
+
+
+
+
+
+               
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="true" aria-expanded="false">
+                        Reportes
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">
+                            Listado de Retardos
+                        </a>
+                        <a class="dropdown-item" href="#">Reporte 2</a>
+                        <a class="dropdown-item" href="#">Reporte 3</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Reporte 4</a>
+                    </div>
+                </li>
+
+
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/salir">salir</a>
+                </li>
+            </ul>
+            <div class="d-flex ">
+                <p class="form-control me-sm-2">
+                    &nbsp; &nbsp;
+                    <b>
+                        Usuario@: {{ session["xnombre_usuario"] }}
+                        &nbsp; &nbsp; / &nbsp; &nbsp;
+                        {{ session["xemail"] }}
+                    </b>
+                    &nbsp; &nbsp;
+                </p>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Fin del Menú Nivel #1 (Módulo Administración) -->

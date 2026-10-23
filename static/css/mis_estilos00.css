@@ -1,0 +1,47 @@
+/* mis_estilos00.css / Autor: Sergio Capacho / Fecha: Jue 15/Oct/2026 - 12:04 Am
+
+body{
+    background-COLOR: #F2F2F2;  Blanco sueve a la vista 
+    font-family: 'Roboto', sans-serif;
+    color: #000000;
+}
+
+b{
+    background-color: #032c62; 
+    color: #ffffff;
+    font-size:30px; 
+}
+
+footer{
+    background-color: #032c62; 
+    color: #ffffff; 
+}
+
+
+#boton3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    display: inline-block;
+    padding: 15px 20px;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease-in all;
+
+    color: #000;
+    background: none;
+    border-radius: 7px;
+    border: 2px solid currentColor;
+    &:focus {
+        outline: 1px rgba(0, 0, 0, 1) solid;
+    }
+    &:hover {
+        background: #000;
+        color: #fff;
+    }
+}
+
+*/
+
+
+

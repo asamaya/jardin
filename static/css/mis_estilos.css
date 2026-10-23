@@ -1,0 +1,77 @@
+/* mis_estilos.css */
+
+body {
+    background-image: url(../img/fondo01.jpg)
+}
+
+footer{
+	background-color: #032c62; 
+	color: #ffffff; 
+}
+
+.redondeo{
+    border-radius: 25px;
+}
+
+
+/*Css para el relog */
+.clockdate-wrapper {
+    background-color: #333;
+    padding:20px;
+    max-width:300px;
+    width:100%;
+    text-align:center;
+    border-radius:5px;
+    margin:0 auto;
+    margin-top:10%;
+}
+
+#clock{
+    background-color:#333;
+    font-family: sans-serif;
+    font-size:37px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+    padding-top: 05px;
+}
+
+#clock span {
+    color:#888;
+    text-shadow:0px 0px 1px #333;
+    font-size:30px;
+    position:relative;
+    top: -7px;
+    left:04px;
+}
+
+#date {
+    letter-spacing:10px;
+    font-size:14px;
+    font-family:arial,sans-serif;
+    color:#fff;
+    padding-top: 10px;
+}
+
+
+
+#titulo-relog{
+    position:relative;
+    top: 56px;
+}
+
+
+#clockdate{
+    vertical-align: middle;
+    padding-bottom: 60px;
+    padding-top: 10px;
+}
+
+
+/*Estilos de la caja del código de la tabla maestra*/
+#h2_estilo_codigo{
+  background-color: azure; 
+  border: 2px solid red;
+  border-radius: 8px; 
+  padding: 5px;
+ 
+}
