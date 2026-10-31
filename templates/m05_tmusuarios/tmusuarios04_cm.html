@@ -1,0 +1,157 @@
+<!-- Programa: tmusuarios04_cm.html -->
+<!-- Objetivo: Consultar/Modificar un registro de TMUSUARIOS -->
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del Bloque Head (Metadata)-->
+{% include 'm01_sitio/zhead.html' %}
+<!-- Fin del Bloque Head (Metadata) -->
+
+<!-- Inicio del Body -->
+
+<body onload="startTime()">
+    <!--- Inicio del Bloque Menú Nivel #1 (Módulo Administración) -->
+    {% include 'm02_login/paso03_admin_zmenu_n1.html' %}
+    <!--- Fin del Bloque Menú Nivel #1 (Módulo Administración) -->
+
+    <!--- Inicio del Bloque Menú Nivel #2 (TMUsuarios) -->
+    {% include 'm05_tmusuarios/tmusuarios01_zmenu_n2.html' %}
+    <!--- Fin del Bloque Menú Nivel #2 (TMUsuarios) -->
+
+    <!--Inicio del Bloque Centro / Container Principal -->
+    <div class="container text-center">
+        <div class="mb-0 p-3 bg-light">
+            <div class="row">
+                <div class="col-md-4"> </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4 style="color:black">
+                                Consultar / Modificar
+                            </h4>
+                        </div>
+                        {% if ymensaje != " " %}
+                        <div class="card-footer text-center">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>
+                                    {{ ymensaje }}
+                                </strong>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if yusuario is none %}
+                        <!-- CONSULTAR -->
+                        <div class="card card-body">
+                            <!-- Inicio del formulario -->
+                                <form action="/tmusuarios/consultar_crud" method="POST">
+                                    <div class="mb-3">
+                                        <label for="txt_nombre_usuario" class="form-label"> Nombre del usuario </label>
+                                        <input type="text" id="txt_nombre_usuario" name="txt_nombre_usuario"
+                                            placeholder="Ingrese el nombre del usuario" class="form-control" required />
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" value="Submit" class="btn btn-primary"
+                                            title="Click para realizar la búsqueda...">
+                                            Buscar
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <a href="/tmusuarios/menu_crud" class="btn btn-outline-info"
+                                            title="Click para limpiar el formulario...">
+                                            Limpiar
+                                        </a>
+                                    </div>
+                                </form>
+                                <!-- Fin del formulario -->
+
+                        </div>
+                        {% else %}
+                        <!-- MODIFICAR --->
+                        <div class="card-body">
+                            <!-- Inicio del formulario -->
+                                <form action="/tmusuarios/modificar_crud" method="POST" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="txt_codusu" class="form-label">Código:</label>
+                                        <input type="text" id="txt_codusu" name="txt_codusu" class="form-control"
+                                            value="{{ yusuario[0]}}" hidden />
+                                        <h2 id="h2_estilo_codigo"> <b>{{ yusuario[0] }}</b> </h2>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="txt_nombre_usuario" class="form-label">Nombre de usuario:</label>
+                                        <input type="text" id="txt_nombre_usuario" name="txt_nombre_usuario"
+                                            class="form-control" value="{{ yusuario[1] }}" required />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txt_correo" class="form-label">Correo:</label>
+                                        <input type="email" id="txt_correo" name="txt_correo"
+                                            class="form-control" value="{{ yusuario[2] }}" required />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txt_clave" class="form-label">Clave:</label>
+                                        <input type="password" id="txt_clave" name="txt_clave"
+                                            class="form-control" placeholder="Ingrese una nueva clave (opcional)" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txt_foto" class="form-label">Foto:</label>
+                                        <div class="mb-2">
+                                            <img src="{{ url_for('static', filename='img/fotos/' ~ yusuario[3]) }}"
+                                                alt="Foto actual del usuario" class="img-thumbnail"
+                                                style="max-width: 150px; max-height: 150px;" />
+                                        </div>
+                                        <input type="file" id="txt_foto" name="txt_foto" class="form-control"
+                                            accept="image/*" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txt_nivel" class="form-label">Nivel:</label>
+                                        <input type="text" id="txt_nivel" name="txt_nivel"
+                                            class="form-control" value="{{ yusuario[4] }}" required />
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" value="Submit" class="btn btn-primary"
+                                            title="Click para Modificar un registro">
+                                            Modificar
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <a href="{{url_for('tmusuarios.eliminar02_crud',xpknu = yusuario[0]) }}"
+                                            class="btn btn-danger btn-delete"
+                                            title="Click para eliminar este registro...">
+                                            Eliminar
+                                        </a>
+
+
+                                        &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                        <a href="/tmusuarios/menu_crud" class="btn btn-outline-info"
+                                            title="Click para limpiar la consulta">
+                                            Limpiar
+                                        </a>
+                                    </div>
+                                </form>
+                                <!-- Fin del formulario -->
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-4"> </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <!--Fin del Bloque Centro / Cuerpo Container Principal -->
+
+    <BR />
+    <!--Inicio del Bloque Pie de página -->
+    {% include 'm01_sitio/zpie.html' %}
+    <!--Fin del Bloque Pie de Página -->
+    <br />
+
+</body>
+<!-- Fin del Body -->
+
+</html>

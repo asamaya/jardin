@@ -1,0 +1,41 @@
+<!-- Programa: tmstatus01_base.html -->
+<!-- Autor: Sergio Capacho / Sábado 24/Oct/2026 11:00 Pm -->
+<!-- Objetivo: Construir la estructuta para las operaciones CRUD de la TMSTATUS -->
+<!DOCTYPE html>
+<html lang="es">
+	<!-- Inicio del Bloque Head (Meta data) -->     
+	{% include 'm01_sitio/zhead.html' %}
+	<!-- Fin del Bloque Head (Meta data) -->
+
+     <!-- Inicio del Body -->
+     <body    onload="startTime()"> 
+	    <!--- Inicio del Bloque Menú Nivel #1 (Módulo Administración) -->
+	    {% include 'm02_login/paso03_admin_zmenu_n1.html' %}
+		<!--- Fin del Bloque Menú Nivel #1 (Módulo Administración) -->
+
+     	<!--- Inicio del Bloque Menú Nivel #2 (TMStatus) -->
+     	{% include 'm03_tmstatus/tmstatus01_zmenu_n2.html' %}
+		<!--- Fin del Bloque Menú Nivel #2 (TMStatus) -->
+
+		<!--Inicio del Bloque Centro /  Container Principal  -->
+		<div class="container text-center">
+			<div class="mb-0 p-5 bg-light">
+				<br/>
+				<br/>
+				<br/>
+			</div>
+			<BR/>
+			<BR/>
+		</div>
+		<!--Fin del Bloque Centro / Cuerpo Container Principal -->
+
+		<BR/>
+		<!--Inicio del Bloque Pie de página  -->
+		{% include 'm01_sitio/zpie.html' %}
+		<!--Fin del Bloque Pie de Página -->
+		<BR/>
+
+    </body>
+    <!-- Fin del Body -->
+    
+</html>

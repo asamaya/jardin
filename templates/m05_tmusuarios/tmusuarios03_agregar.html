@@ -1,0 +1,124 @@
+<!-- Programa: tmusuarios03_agregar.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del Bloque Head (Metadata) -->
+{% include 'm01_sitio/zhead.html' %}
+<!-- Fin del Bloque Head (Metadata) -->
+
+<!-- Inicio del Body -->
+
+<body onload="startTime()">
+    <!--- Inicio del Bloque Menú Nivel #1 (Módulo Administración) -->
+    {% include 'm02_login/paso03_admin_zmenu_n1.html' %}
+    <!--- Fin del Bloque Menú Nivel #1 (Módulo Administración) -->
+
+    <!--- Inicio del Bloque Menú Nivel #2 (TMCargos) -->
+    {% include 'm05_tmusuarios/tmusuarios01_zmenu_n2.html' %}
+    <!--- Fin del Bloque Menú Nivel #2 (TMCargos) -->
+
+    <!--Inicio del Bloque Centro / Container Principal -->
+    <div class="container text-center">
+        <div class="mb-0 p-3 bg-light">
+            <div class="row">
+                <div class="col-md-4"> </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4 style="color:black">
+                                Agregar un usuario nuevo
+                            </h4>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>
+                                    {{ ymensaje }}
+                                </strong>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="card-body">
+                            <!-- Inicio del Formulario -->
+                            <form action="/tmusuarios/agregar_crud" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="txt_nombre_usuario" class="form-label">
+                                        Nombre de usuario:
+                                    </label>
+                                    <input type="text" class="form-control" id="txt_nombre_usuario" name="txt_nombre_usuario"
+                                        placeholder="Escriba el nombre de usuario" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_correo" class="form-label">
+                                        Correo:
+                                    </label>
+                                    <input type="email" class="form-control" id="txt_correo" name="txt_correo"
+                                        placeholder="Escriba el correo" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_clave" class="form-label">
+                                        Clave:
+                                    </label>
+                                    <input type="password" class="form-control" id="txt_clave" name="txt_clave"
+                                        placeholder="Escriba la clave" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_foto" class="form-label">
+                                        Foto:
+                                    </label>
+                                    <input type="file" class="form-control" id="txt_foto" name="txt_foto"
+                                        accept="image/*" required />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="txt_nivel" class="form-label">
+                                        Nivel:
+                                    </label>
+                                    <select class="form-select" id="txt_nivel" name="txt_nivel" required>
+                                        <option value="" selected disabled>Seleccione el nivel</option>
+                                        {% for nivel in yniveles %}
+                                        <option value="{{ nivel[0] }}">{{ nivel[0] }} - {{ nivel[1] }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" value="Submit" class="btn btn-primary"
+                                        title="Click para agregar un nuevo registro">
+                                        Agregar
+                                    </button>
+                                    &nbsp; &nbsp; &nbsp;
+                                    <button type="reset" value="Reset" class="btn btn-outline-info"
+                                        title="Click para limpiar el formulario...">
+                                        Limpiar
+                                    </button>
+                                </div>
+                            </form>
+                            <!-- Fin del Formulario -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4"> </div>
+            </div>
+        </div>
+        <br />
+
+
+
+        <br />
+    </div>
+    <!--Fin del Bloque Centro / Cuerpo Container Principal -->
+    <BR />
+    <!--Inicio del Bloque Pie de página -->
+    {% include 'm01_sitio/zpie.html' %}
+    <!--Fin del Bloque Pie de Página -->
+    <br />
+</body>
+<!-- Fin del Body -->
+
+</html>

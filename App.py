@@ -27,6 +27,12 @@ from flask import redirect
 # Permite recibir datos enviados desde formularios
 from flask import request
 
+from blueprints.bp03_tmstatus import obj_tmstatus
+
+from blueprints.bp04_tmcargos import obj_tmcargos
+
+from blueprints.bp05_tmusuarios import obj_tmusuarios
+
 # 03.- CREACIÓN DE LA APLICACIÓN
 mi_app = Flask(__name__)
 
@@ -109,8 +115,9 @@ def login_validar():
     # ***********************************************
 
     # PASO 1.- RECIBIR LOS DATOS DEL FORMULARIO
-    xemail = request.form['txt_email'].upper()
-    xclave = request.form['txt_clave'].upper()
+    xemail = request.form['txt_email'].strip().upper()
+    # La clave NO se convierte a mayúsculas: debe compararse tal como se escribió
+    xclave = request.form['txt_clave']
 
     # print("Datos llegados del formulario........................................")
     # print("Email ---> " + str(xemail))
@@ -122,7 +129,7 @@ def login_validar():
         port=5432,
         dbname="bdretardados",
         user="postgres",
-        password="1234567"
+        password="Lizzicat09."
     )
     cursor = conexion.cursor()
 
@@ -130,7 +137,7 @@ def login_validar():
     sql = """
         SELECT *
         FROM TMUSUARIOS
-        WHERE (email_u = %s) AND (clave_u = %s);
+        WHERE (UPPER(email_u) = %s) AND (clave_u = %s);
     """
     datos = (xemail, xclave)
 
@@ -193,6 +200,10 @@ def login_salir():
 # FIN RUTA LOGIN PARA TRABAJAR CON EL BACKEND
 # -----------------------------------------
 # ------------------------------------------------------
+
+mi_app.register_blueprint(obj_tmstatus, url_prefix='/tmstatus')
+mi_app.register_blueprint(obj_tmcargos, url_prefix='/tmcargos')
+mi_app.register_blueprint(obj_tmusuarios, url_prefix='/tmusuarios')
 
 # 06.- EJECUCIÓN DEL APLICATIVO
 if __name__ == '__main__':

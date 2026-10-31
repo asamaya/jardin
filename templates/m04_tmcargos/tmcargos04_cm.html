@@ -1,0 +1,159 @@
+<!-- Programa: tmcargos04_cm.html -->
+<!-- Autor: Sergio Capacho / Domingo 25/Oct/2026 - 11:00 Pm -->
+<!-- Objetivo: Consultar/Modificar un registro de TMCARGOS -->
+<!DOCTYPE html>
+<html lang="es">
+<!-- Inicio del Bloque Head (Metadata)-->
+{% include 'm01_sitio/zhead.html' %}
+<!-- Fin del Bloque Head (Metadata) -->
+
+<!-- Inicio del Body -->
+
+<body onload="startTime()">
+    <!--- Inicio del Bloque Menú Nivel #1 (Módulo Administración) -->
+    {% include 'm02_login/paso03_admin_zmenu_n1.html' %}
+    <!--- Fin del Bloque Menú Nivel #1 (Módulo Administración) -->
+
+    <!--- Inicio del Bloque Menú Nivel #2 (TMCargos) -->
+    {% include 'm04_tmcargos/tmcargos01_zmenu_n2.html' %}
+    <!--- Fin del Bloque Menú Nivel #2 (TMCargos) -->
+
+    <!--Inicio del Bloque Centro / Container Principal -->
+    <div class="container text-center">
+        <div class="mb-0 p-3 bg-light">
+            <div class="row">
+                <div class="col-md-4"> </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h4 style="color:black">
+                                Consultar / Modificar
+                            </h4>
+                        </div>
+                        {% if ymensaje != " " %}
+                        <div class="card-footer text-center">
+                            <div class="alert alert-danger" role="alert">
+                                <strong>
+                                    {{ ymensaje }}
+                                </strong>
+                            </div>
+                        </div>
+                        {% endif %}
+
+
+
+
+
+
+
+                        {% if ycargo is none %}
+                        <!-- CONSULTAR -->
+                        <div class="card card-body">
+                            <!—Inicio del formulario -->
+                                <form action="/tmcargos/consultar_crud" method="POST">
+                                    <div class="mb-3">
+                                        <label for="txt_codcar" class="form-label"> Código </label>
+                                        <input type="text" id="txt_codcar" name="txt_codcar"
+                                            placeholder="Ingrese el código del cargo" class="form-control" />
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" value="Submit" class="btn btn-primary"
+                                            title="Click para realizar la búsqueda...">
+                                            Buscar
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp;
+                                        <a href="/tmcargos/menu_crud" class="btn btn-outline-info"
+                                            title="Click para limpiar el formulario...">
+                                            Limpiar
+                                        </a>
+                                    </div>
+                                </form>
+                                <!— Fin del formulario -->
+
+                        </div>
+                        {% else %}
+                        <!-- MODIFICAR --->
+                        <div class="card-body">
+                            <!—Inicio del formulario -->
+                                <form action="/tmcargos/modificar_crud" method="POST">
+                                    <div class="mb-3">
+                                        <label for="txt_codcar" class="form-label">Código:</label>
+                                        <input type="text" id="txt_codcar" name="txt_codcar" class="form-control"
+                                            value="{{ ycargo[0]}}" hidden />
+                                        <h2 id="h2_estilo_codigo"> <b>{{ ycargo[0] }}</b> </h2>
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="txt_descripcion" class="form-label">Descripción: </label>
+                                        <input type="text" id="txt_descripcion" name="txt_descripcion"
+                                            class="form-control" value="{{ ycargo[1] }}" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txt_sueldo" class="form-label">Sueldo: </label>
+                                        <input type="text" id="txt_sueldo" name="txt_sueldo"
+                                            class="form-control text-end" value="{{ ycargo[2] }}" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="txt_fkcods" class="form-label"> Status: </label>
+                                        <select id="txt_fkcods" name="txt_fkcods" class="form-select">
+                                            {% for status in ytmstatus %}
+                                            {% if ycargo[3] == status[0] %}
+                                            <option value="{{ status[0] }}" selected>
+                                                {{ status[0] }} - {{ status[1] }}
+                                            </option>
+                                            {% else %}
+                                            <option value="{{ status[0] }}">
+                                                {{ status[0] }} - {{ status[1] }}
+                                            </option>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" value="Submit" class="btn btn-primary"
+                                            title="Click para Modificar un registro">
+                                            Modificar
+                                        </button>
+                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                        <a href="{{url_for('tmcargos.eliminar02_crud',xcodcar = ycargo[0]) }}"
+                                            class="btn btn-danger btn-delete"
+                                            title="Click para eliminar este registro...">
+                                            Eliminar
+                                        </a>
+
+
+
+                                        &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                        <a href="/tmcargos/menu_crud" class="btn btn-outline-info"
+                                            title="Click para limpiar la consulta">
+                                            Limpiar
+                                        </a>
+                                    </div>
+                                </form>
+                                <!— Fin del formulario -->
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-4"> </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+    <!--Fin del Bloque Centro / Cuerpo Container Principal -->
+
+    <BR />
+    <!--Inicio del Bloque Pie de página -->
+    {% include 'm01_sitio/zpie.html' %}
+    <!--Fin del Bloque Pie de Página -->
+    <br />
+
+</body>
+<!-- Fin del Body -->
+
+</html>

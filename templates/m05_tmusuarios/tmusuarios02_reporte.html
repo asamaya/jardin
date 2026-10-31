@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+{% include 'm01_sitio/zhead.html' %}
+
+<body>
+    {% include 'm02_login/paso03_admin_zmenu_n1.html' %}
+    {% include 'm05_tmusuarios/tmusuarios01_zmenu_n2.html' %}
+
+    <div class="container text-center">
+        <div class="mb-0 p-5 bg-light">
+            <h1 style="color:black">Listado de Usuarios</h1>
+
+            {% if ymensaje != " " %}
+            <div class="alert alert-danger" role="alert">
+                <strong>{{ ymensaje }}</strong>
+            </div>
+            {% endif %}
+
+            <table class="table table-striped table-bordered bg-white table-sm">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Código</th>
+                        <th>Nombre de usuario</th>
+                        <th>Correo</th>
+                        <th>Foto</th>
+                        <th>Nivel</th>
+                        <th>Estatus</th>
+                        <th colspan="3">ACCIÓN</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for fila in ydatos %}
+                    <tr>
+                        <!-- fila[0]=pknu, fila[1]=nom_u, fila[2]=email_u,
+                             fila[3]=foto_u, fila[4]=nivel_u,
+                             fila[5]=fkcods, fila[6]=estatus -->
+                        <td>{{ fila[0] }}</td>
+                        <td>{{ fila[1] }}</td>
+                        <td>{{ fila[2] }}</td>
+
+                        <td>
+                            {% if fila[3] %}
+                            <img src="{{ url_for('tmusuarios.mostrar_foto', xpknu=fila[0]) }}"
+                                alt="Foto de {{ fila[1] }}"
+                                class="img-thumbnail"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                            {% else %}
+                            Sin foto
+                            {% endif %}
+                        </td>
+
+                        <td>{{ fila[4] }}</td>
+
+                        <td>
+                            {% if fila[5] == 1 %}
+                            <span class="badge bg-success">ACTIVO</span>
+                            {% elif fila[5] == 0 %}
+                            <span class="badge bg-danger">ELIMINADO</span>
+                            {% else %}
+                            <span class="badge bg-warning text-dark">{{ fila[6] }}</span>
+                            {% endif %}
+                        </td>
+
+                        <td width="75px">
+                            <form action="/tmusuarios/consultar_crud" method="POST">
+                                <input type="hidden" name="txt_nombre_usuario" value="{{ fila[1] }}">
+
+                                <button type="submit" class="btn btn-success">
+                                    Consultar
+                                </button>
+                            </form>
+                        </td>
+
+                        <td width="75px">
+                            <form action="/tmusuarios/consultar_crud" method="POST">
+                                <input type="hidden" name="txt_nombre_usuario" value="{{ fila[1] }}">
+
+                                <button type="submit" class="btn btn-warning">
+                                    Modificar
+                                </button>
+                            </form>
+                        </td>
+
+                        <td width="75px">
+                            <a href="{{ url_for('tmusuarios.eliminar02_crud', xpknu=fila[0]) }}"
+                                class="btn btn-danger">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% include 'm01_sitio/zpie.html' %}
+</body>
+</html>
